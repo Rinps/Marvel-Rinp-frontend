@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Marvel';
+    src: url('Marvel-Regular.eot');
+    src: url('Marvel-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Marvel-Regular.woff2') format('woff2'),
+        url('Marvel-Regular.woff') format('woff'),
+        url('Marvel-Regular.ttf') format('truetype'),
+        url('Marvel-Regular.svg#Marvel-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,38 +1,419 @@
+@font-face {
+  font-family: "Marvel";
+  src: url("./assets/fonts/Marvel-Regular.ttf") format("ttf"),
+    url("./assets/fonts/Marvel-Regular.eot") format("eot"),
+    url("./assets/fonts/Marvel-Regular.svg") format("svg"),
+    url("./assets/fonts/Marvel-Regular.woff") format("woff"),
+    url("./assets/fonts/Marvel-Regular.woff2") format("woff2");
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  color: white;
+  background-color: black;
   min-height: 100vh;
+}
+
+.Link,
+.Link h1,
+.Link p {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Page {
+  width: 90vw;
+  margin: auto;
+}
+
+/* ================= Header style ================= */
+header {
+  background-color: #202020;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 100%;
+  height: 140px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+}
+
+.logo {
+  height: 100px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 220px);
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+li > .Link {
+  margin: 30px;
+  font-weight: bold;
+  font-family: Marvel;
+  font-size: 32px;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 300px;
+}
+
+nav > div > .Link {
+  font-family: Marvel;
+  font-size: 26px;
+  font-weight: bold;
+  height: 70%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.test:hover {
+  border-bottom: e62429 2px solid;
+}
+
+#login {
+  background-color: #e62429;
+}
+
+#signup {
+  background-color: darkgoldenrod;
+}
+
+#logout {
+  text-decoration: none;
+  height: 70%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: darkcyan;
+}
+
+#logout > button {
+  color: white;
+  font-family: Marvel;
+  font-size: 26px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ================= Character Searchbar and pagination style ================= */
+#charactersSearch,
+#comicsSearch {
+  margin: 30px;
+  height: 50px;
+  width: 600px;
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 14px;
+  font-weight: bold;
+}
+
+.pagesLink {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pagesLink > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.pagesLink > button {
+  height: 30px;
+  width: 35px;
+  text-align: center;
+  padding: 0px;
+  color: white;
+  background: none;
+  border: none;
+}
+
+.activePage {
+  height: 30px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ================= Characters Page style ================= */
+.charactersSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ================= Character Sheet style ================= */
+.Character {
+  border: silver 2px solid;
+  box-sizing: border-box;
+  width: 500px;
+  margin: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Character > img {
+  max-width: 150px;
+  object-fit: fill;
+  border: 1px solid black;
+  box-sizing: border-box;
+  float: left;
+  border: silver 2px solid;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.Character h1 {
+  width: 100%;
+  border-bottom: 1px solid silver;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.Character p {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding: 10px;
+  text-align: justify;
+}
+
+/* ================= Comics Page style ================= */
+.comicsSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ================= Comics Sheet style ================= */
+.Comic {
+  border: silver 2px solid;
+  box-sizing: border-box;
+  width: 500px;
+  overflow: hidden;
+  margin: 50px;
+  position: relative;
+}
+
+.Comic > img {
+  max-width: 150px;
+  object-fit: fill;
+  border: 1px solid black;
+  box-sizing: border-box;
+  float: left;
+  border: silver 2px solid;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.Comic h1 {
+  width: 100%;
+  border-bottom: 1px solid silver;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.Comic p {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding: 10px;
+  text-align: justify;
+}
+
+/* ================= Favorite Checkbox style ================= */
+.checkbox {
+  position: absolute;
+  bottom: 0px;
+  right: -8px;
+  background: none;
+  border: none;
+  width: 75px;
+  height: 30px;
+}
+
+.checkboxImage {
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= Page selection style ================= */
+.pagesLink {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.pagesLink button {
+  margin: 0px 15px;
+}
+
+/* ================= Favorites Page style ================= */
+.FavoritesPage {
+  display: flex;
+  justify-content: space-around;
+}
+
+.favDeleteButton {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background: none;
+  border: none;
+  color: #e62429;
+}
+
+/* ================= Signup Page style ================= */
+.SignupPage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: silver;
+  width: 25%;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.SignupPage > * {
+  margin: 10px;
+}
+
+.SignupPage > h1 {
+  width: 100%;
+  background-color: goldenrod;
   color: white;
+  margin-top: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-family: Marvel;
+  font-size: xx-large;
 }
 
-.App-link {
-  color: #61dafb;
+.SignupPage p {
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.SignupPage > div {
+  width: 100%;
+}
+
+.SignupPage > div > * {
+  margin: 4px;
+}
+
+.SignupPage input {
+  width: 75%;
+  height: 30px;
+  border-radius: 10px;
+}
+
+#signupSubmit {
+  background-color: goldenrod;
+  color: white;
+  width: 150px;
+  height: 50px;
+  border: none;
+  font-family: Marvel;
+  font-size: xx-large;
+}
+
+/* ================= Login Page style ================= */
+.LoginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: silver;
+  width: 25%;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.LoginPage > * {
+  margin: 10px;
+}
+
+.LoginPage > h1 {
+  width: 100%;
+  background-color: #e62429;
+  color: white;
+  margin-top: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-family: Marvel;
+  font-size: xx-large;
+}
+
+.LoginPage p {
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.LoginPage > div {
+  width: 100%;
+}
+
+.LoginPage > div > * {
+  margin: 4px;
+}
+
+.LoginPage input {
+  width: 75%;
+  height: 30px;
+  border-radius: 10px;
+}
+
+#loginSubmit {
+  background-color: #e62429;
+  color: white;
+  width: 150px;
+  height: 50px;
+  border: none;
+  font-family: Marvel;
+  font-size: xx-large;
 }
