@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faDumpster, faKey } from "@fortawesome/free-solid-svg-icons";
+
 import CharactersPage from "./components/CharactersPage";
 import CharacterDetailPage from "./components/CharacterDetailPage";
 import ComicsPage from "./components/ComicsPage";
