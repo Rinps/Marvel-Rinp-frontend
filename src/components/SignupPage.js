@@ -6,7 +6,6 @@ const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [usermail, setUsermail] = useState("");
   const [password, setPassword] = useState("");
-  const [accountCreated, setAccountCreated] = useState(false);
   const [accountError, setAccountError] = useState(false);
   const history = useHistory();
 
@@ -23,14 +22,11 @@ const SignupPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const serverResponse = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/user/signup`,
-        {
-          username: username,
-          email: usermail,
-          password: password,
-        }
-      );
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/user/signup`, {
+        username: username,
+        email: usermail,
+        password: password,
+      });
       setAccountError(false);
       history.push("/login");
     } catch (error) {

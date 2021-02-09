@@ -30,7 +30,7 @@ const CharactersPage = (props) => {
   };
 
   // Only fetch the datas when the page is rendered.
-  useEffect(fetchData, [page, debouncedSearch]);
+  useEffect(fetchData, [page, debouncedSearch, searchCharacter]);
 
   // createCharacter will be used to make each Character components.
   const createCharacter = (character, index) => {
