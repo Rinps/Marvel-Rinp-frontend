@@ -3,12 +3,15 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignupPage = () => {
+  // State definition
+
   const [username, setUsername] = useState("");
   const [usermail, setUsermail] = useState("");
   const [password, setPassword] = useState("");
   const [accountError, setAccountError] = useState(false);
   const history = useHistory();
 
+  // Handlers for the form.
   const handleNameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -19,6 +22,7 @@ const SignupPage = () => {
     setPassword(event.target.value);
   };
 
+  // HandleSubmit send a request to create a new user in the database and redirect the user to the login form.
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
