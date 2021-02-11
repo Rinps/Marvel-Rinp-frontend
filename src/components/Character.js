@@ -16,10 +16,14 @@ const Character = (props) => {
     if (loggedIn) {
       // The isAFavorite function is used to check if the characters ID is stored inside the user's favorites characters.
       const isAFavorite = () => {
-        const result = user.favorites.characters.filter((favCharacter) => {
-          return favCharacter.characterId === id;
-        });
-        return result.length;
+        if (user) {
+          const result = user.favorites.characters.filter((favCharacter) => {
+            return favCharacter.characterId === id;
+          });
+          return result.length;
+        } else {
+          return 0;
+        }
       };
 
       // If the isAFavorite return a number greater than 0, the character is in the favorite list. We update the favCharacters with datas that depends on this result.
