@@ -7,12 +7,13 @@ import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faDumpster, faKey } from "@fortawesome/free-solid-svg-icons";
 
-import CharactersPage from "./components/CharactersPage";
-import CharacterDetailPage from "./components/CharacterDetailPage";
-import ComicsPage from "./components/ComicsPage";
+import CharactersPage from "./components/Characters/CharactersPage";
+import CharacterDetailPage from "./components/Characters/CharacterDetailPage";
+import ComicsPage from "./components/Comics/ComicsPage";
 import FavoritesPage from "./components/FavoritesPage";
-import SignupPage from "./components/SignupPage";
-import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/Authentication/SignupPage";
+import LoginPage from "./components/Authentication/LoginPage";
+import Test from "./components/Test";
 import logo from "./assets/images/logo_Marvel.png";
 library.add(faDumpster, faKey);
 
@@ -62,7 +63,7 @@ function App() {
           <img src={logo} alt="logo" className="logo" />
           <nav>
             <ul>
-              <li className="test">
+              <li>
                 <Link className="Link" to="/characters">
                   MARVEL'S CHARACTERS
                 </Link>
@@ -117,6 +118,9 @@ function App() {
           </Route>
           <Route path="/login">
             <LoginPage setLoggedIn={setLoggedIn} />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
           <Route path="/">
             <CharactersPage loggedIn={loggedIn} user={user} setUser={setUser} />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import FavCharacter from "./FavCharacter";
-import FavComic from "./FavComic";
+import FavCharacter from "./Characters/FavCharacter";
+import FavComic from "./Comics/FavComic";
 
 const FavoritesPage = (props) => {
   // Extract props

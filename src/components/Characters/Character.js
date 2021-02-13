@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import favCheckbox from "../assets/images/favorite.png";
-import notFavCheckbox from "../assets/images/notFavorite.png";
+import favCheckbox from "../../assets/images/favorite.png";
+import notFavCheckbox from "../../assets/images/notFavorite.png";
 
 const Character = (props) => {
   const { id, name, description, picture, user, setUser, loggedIn } = props;
@@ -10,13 +10,14 @@ const Character = (props) => {
     list: [],
     checked: "",
   });
+  const [elementToScroll, setElementToScroll] = useState();
 
   // Check if the user is logged is and, if this is the case, handle the favorite system;
   useEffect(() => {
     if (loggedIn) {
       // The isAFavorite function is used to check if the characters ID is stored inside the user's favorites characters.
       const isAFavorite = () => {
-        if (user) {
+        if (user && user.favorites) {
           const result = user.favorites.characters.filter((favCharacter) => {
             return favCharacter.characterId === id;
           });
@@ -33,7 +34,7 @@ const Character = (props) => {
           checked: favCheckbox,
         };
         setFavCharacters(newObj);
-      } else {
+      } else if (user && user.favorites) {
         const newObj = {
           list: [...user.favorites.characters],
           checked: notFavCheckbox,
@@ -43,7 +44,7 @@ const Character = (props) => {
     }
   }, [loggedIn, id, user]);
 
-  // Handle the checkbox.
+  // Handle the favorite image, which must behave like a checkbox.
   const handleCheckChange = async () => {
     // The function will either add a favorite or remove it, depending of the initial state of the checkbox.
     if (favCharacters.checked === favCheckbox) {
@@ -92,18 +93,45 @@ const Character = (props) => {
     }
   };
 
+  // The character's data displayed depends on wether or not the user's mouse is hovering on this character's sheet.
+  const handleHover = (event) => {
+    console.log("target", event.target);
+    const target = event.target.parentElement;
+    target.scrollBy({ left: 200, behavior: "smooth" });
+    setElementToScroll(target);
+  };
+
+  const handleNoHovering = () => {
+    if (elementToScroll) {
+      elementToScroll.scrollBy({ left: -200, behavior: "smooth" });
+      setElementToScroll();
+    }
+  };
+
   return (
-    <div className="Character">
-      <img src={`${picture.path}.${picture.extension}`} alt="hero" />
-      <Link className="Link" to={`/character/${name}/${id}`}>
-        <h1>{name}</h1>
-        {description ? <p>{description}</p> : <p>No description</p>}
-      </Link>
-      {loggedIn && (
-        <button className="checkbox" onClick={handleCheckChange}>
-          <img className="checkboxImage" src={favCharacters.checked} alt="" />
-        </button>
-      )}
+    <div
+      className="Character"
+      onMouseEnter={handleHover}
+      onMouseLeave={handleNoHovering}
+    >
+      <div className="cover"></div>
+      <div className="page">
+        <div className="name">
+          <h1>{name.toUpperCase()}</h1>
+        </div>
+        <img src={`${picture.path}.${picture.extension}`} alt="" />
+      </div>
+
+      <div className="page">
+        <Link className="Link" to={`/character/${name}/${id}`}>
+          {description ? description : "No description"}
+        </Link>
+        {loggedIn && (
+          <button className="checkbox" onClick={handleCheckChange}>
+            <img className="checkboxImage" src={favCharacters.checked} alt="" />
+          </button>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Comic from "./Comic";
+import Comic from "../Comics/Comic";
 
 const CharacterDetailPage = (props) => {
   const { loggedIn, user } = props;
