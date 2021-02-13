@@ -53,7 +53,7 @@ const SignupPage = () => {
       <div>
         <p>Email</p>
         <input
-          type="text"
+          type="email"
           value={usermail}
           placeholder="Enter your mail adress"
           onChange={handleMailChange}
@@ -62,7 +62,7 @@ const SignupPage = () => {
       <div>
         <p>Password</p>
         <input
-          type="text"
+          type="password"
           value={password}
           placeholder="Enter your password"
           onChange={handlePasswordChange}

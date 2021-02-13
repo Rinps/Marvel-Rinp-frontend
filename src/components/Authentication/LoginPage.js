@@ -43,7 +43,7 @@ const LoginPage = (props) => {
         onChange={handleNameChange}
       />
       <input
-        type="text"
+        type="password"
         value={password}
         placeholder="Enter your password"
         onChange={handlePasswordChange}
